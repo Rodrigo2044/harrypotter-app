@@ -10,7 +10,7 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url(https://i.blogs.es/40f70e/harry-potter/1366_2000.jpeg);
+  /* background-image: url(https://i.blogs.es/40f70e/harry-potter/1366_2000.jpeg); */
 }
 #root {
   height: 100%;
@@ -115,7 +115,7 @@ img.medium {
   font-size: 1.5rem;
 }
 /* Rating */
-.rating span {
+/* .rating span {
   color: #f0c040;
   margin: 0.1rem;
-}
+} */

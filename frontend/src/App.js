@@ -1,53 +1,30 @@
 import React from 'react';
-import data from './data';
+import { BrowserRouter, Route } from 'react-router-dom';
+import CharacterScreen from './screens/CharacterScreen';
+import HomeScreen from './screens/HomeScreen';
+
 function App() {
   return (
-    <div className="grid-container">
-      <header className="row">
-        <div>
-          <a className="brand" href="/">
-            Harry Potter App
-          </a>
-        </div>
-        <div>
-          <a href="/cart">Estudiantes</a>
-          <a href="/signin">Staff</a>
-        </div>
-      </header>
-      <main>
-        <div>
-          <div className="row center">
-            {data.characters.map((character) => (
-              <div key={character._id} className="card">
-                <a href={`/character/${character._id}`}>
-                  <img
-                    className="medium"
-                    src={character.image}
-                    alt={character.name}
-                  />
-                </a>
-                <div className="card-body">
-                  <a href={`/character/${character._id}`}>
-                    <h2>{character.name}</h2>
-                  </a>
-                  <div className="cumple">
-                    Cumpleaños:{character.dateOfBirth}
-                  </div>
-                  <div className="cumple">Género:{character.gender}</div>
-                  <div className="cumple">
-                    Color de ojos:{character.eyeColour}
-                  </div>
-                  <div className="cumple">
-                    Color de pelo:{character.hairColour}
-                  </div>
-                </div>
-              </div>
-            ))}
+    <BrowserRouter>
+      <div className="grid-container">
+        <header className="row">
+          <div>
+            <a className="brand" href="/">
+              Harry Potter App
+            </a>
           </div>
-        </div>
-      </main>
-      <footer className="row center">All right reserved</footer>
-    </div>
+          <div>
+            <a href="/cart">Estudiantes</a>
+            <a href="/signin">Staff</a>
+          </div>
+        </header>
+        <main>
+          <Route path="/character/:id" component={CharacterScreen}></Route>
+          <Route path="/" component={HomeScreen} exact></Route>
+        </main>
+        <footer className="row center">All right reserved</footer>
+      </div>
+    </BrowserRouter>
   );
 }
 
