@@ -11,10 +11,10 @@ export default function Character(props) {
         <a href={`/character/${character._id}`}>
           <h2>{character.name}</h2>
         </a>
-        <div className="cumple">Cumpleaños: {character.dateOfBirth}</div>
-        <div className="cumple">Género: {character.gender}</div>
-        <div className="cumple">Color de ojos: {character.eyeColour}</div>
-        <div className="cumple">Color de pelo: {character.hairColour}</div>
+        <div className="price">Cumpleaños: {character.dateOfBirth}</div>
+        <div className="price">Género: {character.gender}</div>
+        <div className="price">Color de ojos: {character.eyeColour}</div>
+        <div className="price">Color de pelo: {character.hairColour}</div>
       </div>
     </div>
   );
