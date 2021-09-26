@@ -39,11 +39,11 @@ export default function HomeScreen(props) {
               Staff
             </button>
           </div>
-          {/* <div className="row center">
+          <div className="row center">
             {characters.map((character) => (
               <Character key={character._id} character={character}></Character>
             ))}
-          </div> */}
+          </div>
         </div>
       )}
     </div>

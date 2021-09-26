@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { detailsCharacter } from '../actions/characterActions';
+// import { detailsStudent } from '../actions/studentActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 // import data from '../data';
@@ -14,8 +15,16 @@ export default function CharacterScreen(props) {
   const dispatch = useDispatch();
   // Con esto traemos el id del url
   const characterId = props.match.params.id;
+  // const studentId = props.match.params.id;
+  // const staffId = props.match.params.id;
   const characterDetails = useSelector((state) => state.characterDetails);
   const { loading, error, character } = characterDetails;
+
+  // const studentList = useSelector((state) => state.studentList);
+  // const { loading: loadingStudent, error: errorStudent, student } = studentList;
+
+  // const stafftList = useSelector((state) => state.stafftList);
+  // const { loading: loadingStaff, error: errorStaff, staff } = stafftList;
 
   // if (!character) {
   //   return <div> Character Not Found</div>;
@@ -23,6 +32,8 @@ export default function CharacterScreen(props) {
 
   useEffect(() => {
     dispatch(detailsCharacter(characterId));
+    // dispatch(detailsStudent(studentId));
+    // dispatch(stafftList(staffId));
   }, [characterId, dispatch]);
 
   return (
