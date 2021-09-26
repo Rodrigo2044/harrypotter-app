@@ -23,23 +23,27 @@ export default function HomeScreen(props) {
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <div>
-          {/* <div className="row center">
+          <div className="row center">
             <button
               type="button"
               className="primary"
-              onClick={() => props.history.push('/api/students')}
+              onClick={() => props.history.push('/students')}
             >
               Estudiantes
             </button>
-            <button type="button" className="primary">
+            <button
+              type="button"
+              className="primary"
+              onClick={() => props.history.push('/staff')}
+            >
               Staff
             </button>
-          </div> */}
-          <div className="row center">
+          </div>
+          {/* <div className="row center">
             {characters.map((character) => (
               <Character key={character._id} character={character}></Character>
             ))}
-          </div>
+          </div> */}
         </div>
       )}
     </div>
