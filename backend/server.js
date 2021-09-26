@@ -27,10 +27,7 @@ app.get('/api/staff', (req, res) => {
 });
 
 const __dirname = path.resolve();
-app.use(
-  '/api/characters',
-  express.static(path.join(__dirname, '/api/characters'))
-);
+app.use('/', express.static(path.join(__dirname, '/')));
 app.use(express.static(path.join(__dirname, '/frontend/build')));
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '/frontend/build/index.html'));
