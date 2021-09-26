@@ -1,5 +1,6 @@
 import express from 'express';
 import data from './data.js';
+import path from 'path';
 
 const app = express();
 
@@ -27,7 +28,6 @@ app.get('/api/characters/:id', (req, res) => {
 });
 
 const __dirname = path.resolve();
-app.use('/characters', express.static(path.join(__dirname, '/characters')));
 app.use(express.static(path.join(__dirname, '/frontend/build')));
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '/frontend/build/index.html'));
