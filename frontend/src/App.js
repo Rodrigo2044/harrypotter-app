@@ -3,9 +3,10 @@ import { BrowserRouter, Link, Route } from 'react-router-dom';
 import CharacterScreen from './screens/CharacterScreen';
 import HomeScreen from './screens/HomeScreen';
 import StaffScreen from './screens/StaffScreen';
+import StudentScreen from './screens/StudentScreen';
 import StudentsScreen from './screens/StudentsScreen';
 
-function App() {
+function App(props) {
   return (
     <BrowserRouter>
       <div className="grid-container">
@@ -15,20 +16,37 @@ function App() {
               Harry Potter App
             </Link>
           </div>
-          {/* <div>
-            <a className="brand" href="/">
-              Harry Potter App
-            </a>
-          </div> */}
+
           <div>
-            {/* <a href="/cart">Estudiantes</a>
-            <a href="/signin">Staff</a> */}
-            <Link to="/students">Estudiantes</Link>
-            <Link to="/staff">Staff</Link>
+            <div className="dropdown">
+              <Link to="#admin">
+                Favoritos <i className="fa fa-caret-down"></i>
+              </Link>
+              <ul className="dropdown-content">
+                <li>
+                  <a href={`/character/5`}>
+                    <h1>Minerva McGonagall</h1>
+                  </a>
+                  {/* <button
+                    type="button"
+                    className="small"
+                    onClick={() => {
+                      props.history.push(`/student/33`);
+                    }}
+                  >
+                    Harry Potter
+                  </button> */}
+                </li>
+              </ul>
+            </div>
+            {/* <Link to="/students">Estudiantes</Link>
+            <Link to="/staff">Staff</Link> */}
           </div>
         </header>
         <main>
           <Route path="/character/:id" component={CharacterScreen}></Route>
+          <Route path="/student/:id" component={StudentScreen}></Route>
+          <Route path="/staff/:id" component={StaffScreen}></Route>
           <Route path="/students" component={StudentsScreen}></Route>
           <Route path="/staff" component={StaffScreen}></Route>
           <Route path="/" component={HomeScreen} exact></Route>

@@ -27,6 +27,26 @@ app.get('/api/characters/:id', (req, res) => {
   }
 });
 
+app.get('/api/students/:id', (req, res) => {
+  // buscaremos el producto
+  const student = data.students.find((x) => x._id === req.params.id);
+  if (student) {
+    res.send(student);
+  } else {
+    res.status(404).send({ message: 'Student not Found' });
+  }
+});
+
+app.get('/api/staff/:id', (req, res) => {
+  // buscaremos el producto
+  const staff = data.staff.find((x) => x._id === req.params.id);
+  if (staff) {
+    res.send(staff);
+  } else {
+    res.status(404).send({ message: 'Staff not Found' });
+  }
+});
+
 const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, '/frontend/build')));
 app.get('*', (req, res) => {

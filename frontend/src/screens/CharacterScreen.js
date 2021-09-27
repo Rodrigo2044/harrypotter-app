@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { detailsCharacter } from '../actions/characterActions';
 // import { detailsStudent } from '../actions/studentActions';
@@ -7,33 +7,26 @@ import MessageBox from '../components/MessageBox';
 // import data from '../data';
 
 export default function CharacterScreen(props) {
-  // Ya no vamos a traer los datos de frontend, ahora los traemos de react store
-  // const character = data.characters.find(
-  //   (x) => x._id === props.match.params.id
-  // );
-
   const dispatch = useDispatch();
-  // Con esto traemos el id del url
   const characterId = props.match.params.id;
-  // const studentId = props.match.params.id;
-  // const staffId = props.match.params.id;
   const characterDetails = useSelector((state) => state.characterDetails);
   const { loading, error, character } = characterDetails;
 
-  // const studentList = useSelector((state) => state.studentList);
-  // const { loading: loadingStudent, error: errorStudent, student } = studentList;
+  // const [favorito, setFavorito] = useState(
+  //   window.localStorage.getItem('favorito')
+  // );
 
-  // const stafftList = useSelector((state) => state.stafftList);
-  // const { loading: loadingStaff, error: errorStaff, staff } = stafftList;
-
-  // if (!character) {
-  //   return <div> Character Not Found</div>;
-  // }
+  // const setLocalStorage = (value) => {
+  //   try {
+  //     favorito(value);
+  //     window.localStorage.setItem('favorito', value);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   useEffect(() => {
     dispatch(detailsCharacter(characterId));
-    // dispatch(detailsStudent(studentId));
-    // dispatch(stafftList(staffId));
   }, [characterId, dispatch]);
 
   return (
@@ -71,7 +64,9 @@ export default function CharacterScreen(props) {
                 </li>
               </ul>
             </div>
-            <div className="col-1"></div>
+            <div className="col-1">
+              <button className="primary block">Agrega a favoritos</button>
+            </div>
           </div>
         </div>
       )}
